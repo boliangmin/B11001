@@ -48,7 +48,8 @@
       target_trace_initialize_script="EnableTrace(&quot;$(TraceInterfaceType)&quot;)" />
     <configuration
       Name="Debug"
-      c_user_include_directories="./Source;./Source/HAL/HAL_LED;./Source/HAL/HAL_RTC;./Source/HAL/HAL_Board;./SDK/integration/nrfx;./SDK/integration/nrfx/legacy;./SDK/modules/nrfx;./SDK/modules/nrfx/hal;./SDK/modules/nrfx/mdk;./SDK/modules/nrfx/drivers/include;./SDK/components;./SDK/components/libraries/util;./SDK/components/libraries/delay;./SDK/components/libraries/balloc;./SDK/components/drivers_nrf/nrf_soc_nosd" />
+      arm_compiler_variant="gcc"
+      c_user_include_directories="./Source;./Source/HAL/HAL_LED;./Source/HAL/HAL_RTC;./Source/HAL/HAL_SPI;./Source/HAL/HAL_EPD;./Source/HAL/HAL_Board;./Source/FrameWork/FrameWork_LED;./Source/FrameWork/FrameWork_EPD;./Source/FrameWork/FrameWork_Hardware;./SDK/components;./SDK/components/boards;./SDK/components/drivers_nrf/nrf_soc_nosd;./SDK/components/libraries/atomic;./SDK/components/libraries/balloc;./SDK/components/libraries/bsp;./SDK/components/libraries/button;./SDK/components/libraries/experimental_section_vars;./SDK/components/libraries/log;./SDK/components/libraries/log/src;./SDK/components/libraries/memobj;./SDK/components/libraries/ringbuf;./SDK/components/libraries/strerror;./SDK/components/libraries/timer;./SDK/components/libraries/util;./SDK/components/toolchain/cmsis/include;./SDK/external/fprintf;./SDK/external/freertos/config;./SDK/external/freertos/portable/CMSIS/nrf52;./SDK/external/freertos/portable/GCC/nrf52;./SDK/external/freertos/source/include;./SDK/integration/nrfx;./SDK/integration/nrfx/legacy;./SDK/modules/nrfx;./SDK/modules/nrfx/drivers/include;./SDK/modules/nrfx/hal;./SDK/modules/nrfx/mdk" />
     <folder Name="CMSIS Files">
       <file file_name="nRF/Device/Include/nrf.h" />
       <file file_name="nRF/Device/Source/system_nrf52.c">
@@ -63,9 +64,76 @@
         <configuration Name="Common" file_type="Reset Script" />
       </file>
     </folder>
+    <folder Name="SDK">
+      <folder Name="nRF_Drivers">
+        <file file_name="SDK/integration/nrfx/legacy/nrf_drv_clock.c" />
+        <file file_name="SDK/integration/nrfx/legacy/nrf_drv_spi.c" />
+        <file file_name="SDK/components/drivers_nrf/nrf_soc_nosd/nrf_nvic.c" />
+        <file file_name="SDK/components/drivers_nrf/nrf_soc_nosd/nrf_soc.c" />
+        <file file_name="SDK/modules/nrfx/soc/nrfx_atomic.c" />
+        <file file_name="SDK/modules/nrfx/drivers/src/nrfx_clock.c" />
+        <file file_name="SDK/modules/nrfx/drivers/src/nrfx_gpiote.c" />
+        <file file_name="SDK/modules/nrfx/drivers/src/prs/nrfx_prs.c" />
+        <file file_name="SDK/modules/nrfx/drivers/src/nrfx_spi.c" />
+        <file file_name="SDK/modules/nrfx/drivers/src/nrfx_spim.c" />
+      </folder>
+      <folder Name="nRF_Libraries">
+        <file file_name="SDK/components/libraries/button/app_button.c" />
+        <file file_name="SDK/components/libraries/util/app_error.c" />
+        <file file_name="SDK/components/libraries/util/app_error_handler_gcc.c" />
+        <file file_name="SDK/components/libraries/util/app_error_weak.c" />
+        <file file_name="SDK/components/libraries/timer/app_timer_freertos.c" />
+        <file file_name="SDK/components/libraries/util/app_util_platform.c" />
+        <file file_name="SDK/components/libraries/util/nrf_assert.c" />
+        <file file_name="SDK/components/libraries/atomic/nrf_atomic.c" />
+        <file file_name="SDK/components/libraries/balloc/nrf_balloc.c" />
+        <file file_name="SDK/external/fprintf/nrf_fprintf.c" />
+        <file file_name="SDK/external/fprintf/nrf_fprintf_format.c" />
+        <file file_name="SDK/components/libraries/memobj/nrf_memobj.c" />
+        <file file_name="SDK/components/libraries/ringbuf/nrf_ringbuf.c" />
+        <file file_name="SDK/components/libraries/strerror/nrf_strerror.c" />
+      </folder>
+      <folder Name="nRF_Log">
+        <file file_name="SDK/components/libraries/log/src/nrf_log_frontend.c" />
+        <file file_name="SDK/components/libraries/log/src/nrf_log_str_formatter.c" />
+      </folder>
+      <folder Name="Third Parties">
+        <file file_name="SDK/external/freertos/source/croutine.c" />
+        <file file_name="SDK/external/freertos/source/event_groups.c" />
+        <file file_name="SDK/external/freertos/source/portable/MemMang/heap_1.c" />
+        <file file_name="SDK/external/freertos/source/list.c" />
+        <file file_name="SDK/external/freertos/portable/GCC/nrf52/port.c" />
+        <file file_name="SDK/external/freertos/portable/CMSIS/nrf52/port_cmsis.c" />
+        <file file_name="SDK/external/freertos/portable/CMSIS/nrf52/port_cmsis_systick.c" />
+        <file file_name="SDK/external/freertos/source/queue.c" />
+        <file file_name="SDK/external/freertos/source/stream_buffer.c" />
+        <file file_name="SDK/external/freertos/source/tasks.c" />
+        <file file_name="SDK/external/freertos/source/timers.c" />
+      </folder>
+    </folder>
     <folder Name="Source">
       <configuration Name="Common" filter="c;cpp;cxx;cc;h;s;asm;inc" />
+      <folder Name="FrameWork">
+        <folder Name="FrameWork_Commu" />
+        <folder Name="FrameWork_EPD" />
+        <folder Name="FrameWork_Harware">
+          <file file_name="Source/FrameWork/FrameWork_Hardware/framework_hardware.c" />
+          <file file_name="Source/FrameWork/FrameWork_Hardware/framework_hardware.h" />
+        </folder>
+        <folder Name="FrameWork_LED">
+          <file file_name="Source/FrameWork/FrameWork_LED/framework_led.c" />
+          <file file_name="Source/FrameWork/FrameWork_LED/framework_led.h" />
+        </folder>
+      </folder>
       <folder Name="HAL">
+        <folder Name="HAL_Board">
+          <file file_name="Source/HAL/HAL_Board/hal_board.c" />
+          <file file_name="Source/HAL/HAL_Board/hal_board.h" />
+        </folder>
+        <folder Name="HAL_EPD">
+          <file file_name="Source/HAL/HAL_EPD/hal_epd.c" />
+          <file file_name="Source/HAL/HAL_EPD/hal_epd.h" />
+        </folder>
         <folder Name="HAL_LED">
           <file file_name="Source/HAL/HAL_LED/hal_led.c" />
           <file file_name="Source/HAL/HAL_LED/hal_led.h" />
@@ -73,6 +141,10 @@
         <folder Name="HAL_RTC">
           <file file_name="Source/HAL/HAL_RTC/hal_rtc.c" />
           <file file_name="Source/HAL/HAL_RTC/hal_rtc.h" />
+        </folder>
+        <folder Name="HAL_SPI">
+          <file file_name="Source/HAL/HAL_SPI/hal_spi.c" />
+          <file file_name="Source/HAL/HAL_SPI/hal_spi.h" />
         </folder>
       </folder>
       <file file_name="Source/main.c" />

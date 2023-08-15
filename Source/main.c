@@ -6,47 +6,48 @@
 ************************************************************************************************************************************************/
 
 
-#include "hal_rtc.h"
-#include "hal_led.h"
+
+/************************************************************************************************************************************************
+* include
+************************************************************************************************************************************************/
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+#include "timers.h"
+#include "framework_hardware.h"
+#include "framework_led.h"
 
 
-void delay(uint16_t ms);
+
+/************************************************************************************************************************************************
+* define
+************************************************************************************************************************************************/
+#define main_task_PRIORITY (configMAX_PRIORITIES - 2)
 
 
 
 
 
-void delay(uint16_t ms)
+static void main_task(void *pvParameters)
 {
-    uint32_t blmcc = HAL_RTC_GetSysTicks();
-
+    FrameWork_LED_StateSet(LED_RED, LED_STATE_FLASH);
+    FrameWork_LED_StateSet(LED_BLUE, LED_STATE_FLASH);
     while(1)
     {
-        if(HAL_RTC_GetSysTicks() - blmcc >= ms)
-        {
-            break;
-        }
+        //
     }
 }
 
-
-
 int main(void)
 {
-    HAL_RTC_Init();
+    FrameWork_Hardware_Init();
 
-    HAL_LED_Init(LED_RED);
-    HAL_LED_Init(LED_BLUE);
-
+    xTaskCreate(main_task, "main_task", 200, NULL, main_task_PRIORITY, NULL);
+    vTaskStartScheduler();
 
     while(1)
     {
-        HAL_LED_TurnOff(LED_BLUE);
-        HAL_LED_TurnOn(LED_RED);
-        delay(5000);
-        HAL_LED_TurnOn(LED_BLUE);
-        HAL_LED_TurnOff(LED_RED);
-        delay(5000);
+        //
     }
 }
 
