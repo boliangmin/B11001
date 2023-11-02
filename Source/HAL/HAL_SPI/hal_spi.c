@@ -62,7 +62,21 @@ void HAL_SPI_Init(void)
 ************************************************************************************************************************************************/
 void HAL_SPI_Trans(uint8_t* send_buff, uint8_t* recv_buff, uint16_t len)
 {
-    nrf_drv_spi_transfer(&spi, send_buff, len, recv_buff, len);
+    spi_xfer_done = false;
+
+    if(1 == len)
+    {
+        nrf_drv_spi_transfer(&spi, send_buff, len, recv_buff, 0);
+    }
+    else
+    {
+        nrf_drv_spi_transfer(&spi, send_buff, len, recv_buff, len);
+    }
+
+    while(!spi_xfer_done)
+    {
+        __WFE();
+    }
 }
 
 

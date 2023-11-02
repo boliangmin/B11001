@@ -44,9 +44,15 @@ static void HAL_Board_LEDInit(void)
 ************************************************************************************************************************************************/
 static void HAL_Board_EPDInit(void)
 {
+    nrf_gpio_cfg_output(EPD_SPI_CS_PIN);
     nrf_gpio_cfg_output(EPD_RESET_PIN);
     nrf_gpio_cfg_output(EPD_DC_PIN);
     nrf_gpio_cfg_input(EPD_BUSY_PIN, GPIO_PIN_CNF_PULL_Disabled);
+
+    nrf_gpio_pin_set(EPD_SPI_CS_PIN);
+    nrf_gpio_pin_set(EPD_RESET_PIN);
+    nrf_gpio_pin_set(EPD_DC_PIN);
+
 }
 
 /************************************************************************************************************************************************

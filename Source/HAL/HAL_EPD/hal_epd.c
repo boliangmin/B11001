@@ -3,6 +3,7 @@
 * 文件描述: 墨水屏幕相关封装函数
 * 维护人员: bo.liangmin
 * 版本信息: 20230814--代码创建
+* 修改内容：20230826--优化busyPin处理逻辑，仅读取电平值，去掉RTC
 ***********************************************************************************************************************/
 
 
@@ -12,7 +13,6 @@
 ***********************************************************************************************************************/
 #include "hal_epd.h"
 #include "hal_spi.h"
-#include "hal_rtc.h"
 #include "hal_board.h"
 #include "nrf_gpio.h"
 
@@ -24,26 +24,6 @@
 uint8_t recv_data = 0;
 
 
-
-/***********************************************************************************
-* 函数名称: void HAL_EPD_DelayMs(uint16_t ms)
-* 函数说明: 延时函数
-* 输入参数: 无
-* 输出参数: 无
-* 返回数值: 无
-***********************************************************************************/
-void HAL_EPD_DelayMs(uint16_t ms)
-{
-    uint32_t epd_ticks = HAL_RTC_GetSysTicks();
-
-    while(1)
-    {
-        if(HAL_RTC_GetSysTicks() - epd_ticks >= ms)
-        {
-            break;
-        }
-    }
-}
 
 /***********************************************************************************
 * 函数名称: void HAL_EPD_ResetOn(void)
@@ -118,29 +98,15 @@ static void HAL_EPD_DCData(void)
 }
 
 /***********************************************************************************
-* 函数名称: uint8_t HAL_EPD_BusyPinReady(void)
-* 函数说明: 获取BUSY管脚状态，1--ready,0--not ready
+* 函数名称: uint8_t HAL_EPD_ReadBusyPinValue(void)
+* 函数说明: 获取BUSY管脚电平
 * 输入参数: 无
 * 输出参数: 无
 * 返回数值: 无
 ***********************************************************************************/
-uint8_t HAL_EPD_BusyPinReady(void)
+uint8_t HAL_EPD_ReadBusyPinValue(void)
 {
-    uint32_t busy_tick = HAL_RTC_GetSysTicks();
-    while(1)
-    {
-        if(0 == nrf_gpio_pin_read(EPD_BUSY_PIN))
-        {
-            return 1;
-        }
-        else
-        {
-            if(HAL_RTC_GetSysTicks() - busy_tick >= 100)
-            {
-                return 0;
-            }
-        }
-    }
+    return nrf_gpio_pin_read(EPD_BUSY_PIN);
 }
 
 /***********************************************************************************

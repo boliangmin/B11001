@@ -27,7 +27,7 @@
 ************************************************************************************************************************************************/
 //#define LFCLK_FREQUENCY           (32768UL)                               // LFCLK的频率为Hz
 //#define RTC_FREQUENCY             (1000UL)                                // 所需的RTC工作时钟 RTC_FREQUENCY为Hz
-#define COUNTER_PRESCALER   33
+#define COUNTER_PRESCALER   16
 
 #define HAL_RTC_IRQHandler  RTC0_IRQHandler
 

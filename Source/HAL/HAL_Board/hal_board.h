@@ -24,14 +24,14 @@
 #define LED_RED_PIN          9
 #define LED_BLUE_PIN         11
 
-#define BOARD_SPI_MOSI_PIN   17
-#define BOARD_SPI_MISO_PIN   18
-#define BOARD_SPI_CLK_PIN    19
+#define BOARD_SPI_MOSI_PIN   7
+#define BOARD_SPI_MISO_PIN   8
+#define BOARD_SPI_CLK_PIN    6
 
 #define EPD_SPI_CS_PIN       20
-#define EPD_RESET_PIN        21
-#define EPD_DC_PIN           22
-#define EPD_BUSY_PIN         23
+#define EPD_RESET_PIN        19
+#define EPD_DC_PIN           11
+#define EPD_BUSY_PIN         12
 
 
 

@@ -49,6 +49,7 @@
     <configuration
       Name="Debug"
       arm_compiler_variant="gcc"
+      c_preprocessor_definitions="CONFIG_NFCT_PINS_AS_GPIOS"
       c_user_include_directories="./Source;./Source/HAL/HAL_LED;./Source/HAL/HAL_RTC;./Source/HAL/HAL_SPI;./Source/HAL/HAL_EPD;./Source/HAL/HAL_Board;./Source/FrameWork/FrameWork_LED;./Source/FrameWork/FrameWork_EPD;./Source/FrameWork/FrameWork_Hardware;./SDK/components;./SDK/components/boards;./SDK/components/drivers_nrf/nrf_soc_nosd;./SDK/components/libraries/atomic;./SDK/components/libraries/balloc;./SDK/components/libraries/bsp;./SDK/components/libraries/button;./SDK/components/libraries/experimental_section_vars;./SDK/components/libraries/log;./SDK/components/libraries/log/src;./SDK/components/libraries/memobj;./SDK/components/libraries/ringbuf;./SDK/components/libraries/strerror;./SDK/components/libraries/timer;./SDK/components/libraries/util;./SDK/components/toolchain/cmsis/include;./SDK/external/fprintf;./SDK/external/freertos/config;./SDK/external/freertos/portable/CMSIS/nrf52;./SDK/external/freertos/portable/GCC/nrf52;./SDK/external/freertos/source/include;./SDK/integration/nrfx;./SDK/integration/nrfx/legacy;./SDK/modules/nrfx;./SDK/modules/nrfx/drivers/include;./SDK/modules/nrfx/hal;./SDK/modules/nrfx/mdk" />
     <folder Name="CMSIS Files">
       <file file_name="nRF/Device/Include/nrf.h" />
@@ -115,7 +116,11 @@
       <configuration Name="Common" filter="c;cpp;cxx;cc;h;s;asm;inc" />
       <folder Name="FrameWork">
         <folder Name="FrameWork_Commu" />
-        <folder Name="FrameWork_EPD" />
+        <folder Name="FrameWork_EPD">
+          <file file_name="Source/FrameWork/FrameWork_EPD/framework_epd.c" />
+          <file file_name="Source/FrameWork/FrameWork_EPD/framework_epd.h" />
+          <file file_name="Source/FrameWork/FrameWork_EPD/pic.h" />
+        </folder>
         <folder Name="FrameWork_Harware">
           <file file_name="Source/FrameWork/FrameWork_Hardware/framework_hardware.c" />
           <file file_name="Source/FrameWork/FrameWork_Hardware/framework_hardware.h" />

@@ -23,11 +23,16 @@
  <Project>
   <ProjectSessionItem path="master"/>
   <ProjectSessionItem path="master;master"/>
+  <ProjectSessionItem path="master;master;SDK"/>
+  <ProjectSessionItem path="master;master;SDK;Third Parties"/>
   <ProjectSessionItem path="master;master;Source"/>
   <ProjectSessionItem path="master;master;Source;FrameWork"/>
-  <ProjectSessionItem path="master;master;Source;FrameWork;FrameWork_LED"/>
   <ProjectSessionItem path="master;master;Source;HAL"/>
+  <ProjectSessionItem path="master;master;Source;HAL;HAL_Board"/>
+  <ProjectSessionItem path="master;master;Source;HAL;HAL_LED"/>
+  <ProjectSessionItem path="master;master;Source;HAL;HAL_RTC"/>
   <ProjectSessionItem path="master;master;Source;HAL;HAL_SPI"/>
+  <ProjectSessionItem path="master;master;System Files"/>
  </Project>
  <Register1>
   <RegisterWindow visibleNodes="CPU - Current Context/r0;CPU - Current Context/r1;CPU - Current Context/r2;CPU - Current Context/r3;CPU - Current Context/r4;CPU - Current Context/r5;CPU - Current Context/r6;CPU - Current Context/r7;CPU - Current Context/r8;CPU - Current Context/r9;CPU - Current Context/r10;CPU - Current Context/r11;CPU - Current Context/r12;CPU - Current Context/sp(r13);CPU - Current Context/lr(r14);CPU - Current Context/pc(r15);CPU - Current Context/apsr;CPU/r0;CPU/r1;CPU/r2;CPU/r3;CPU/r4;CPU/r5;CPU/r6;CPU/r7;CPU/r8;CPU/r9;CPU/r10;CPU/r11;CPU/r12;CPU/sp(r13);CPU/lr(r14);CPU/pc(r15);CPU/xpsr;CPU/MSP;CPU/PSP;CPU/PRIMASK;CPU/BASEPRI;CPU/FAULTMASK;CPU/CONTROL;CPU/internal" binaryNodes="" asciiNodes="" openNodes="CPU - Current Context" name="master_Debug" decimalNodes="" octalNodes="" unsignedNodes=""/>
@@ -48,7 +53,16 @@
   <Trace enabled="Yes"/>
  </TraceWindow>
  <Watch1>
-  <Watches active="1" update="Never"/>
+  <Watches active="1" update="Never">
+   <Watchpoint expression="blmcc" name="blmcc" radix="-1" linenumber="69" filename="Source/main.c"/>
+   <Watchpoint expression="busy_tick" name="busy_tick" radix="-1" linenumber="117" filename="Source/HAL/HAL_EPD/hal_epd.c"/>
+   <Watchpoint expression="HAL_RTC_GetSysTicks()" name="HAL_RTC_GetSysTicks()" radix="-1" linenumber="117" filename="Source/HAL/HAL_EPD/hal_epd.c"/>
+   <Watchpoint expression="blmdde" name="blmdde" radix="-1" linenumber="116" filename="Source/HAL/HAL_EPD/hal_epd.c"/>
+   <Watchpoint expression="err_code" name="err_code" radix="-1" linenumber="340" filename="SDK/modules/nrfx/drivers/src/nrfx_spim.c"/>
+   <Watchpoint expression="ss_pin" name="ss_pin" radix="16" linenumber="585" filename="SDK/modules/nrfx/drivers/src/nrfx_spim.c"/>
+   <Watchpoint expression="p_cb" name="p_cb" radix="-1" linenumber="585" filename="SDK/modules/nrfx/drivers/src/nrfx_spim.c"/>
+   <Watchpoint expression="p_cb->ss_pin" name="p_cb->ss_pin" radix="-1" linenumber="585" filename="SDK/modules/nrfx/drivers/src/nrfx_spim.c"/>
+  </Watches>
  </Watch1>
  <Watch2>
   <Watches active="0" update="Never"/>
@@ -60,9 +74,9 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="41" useTextEdit="1" path="Source/main.c" left="0" selected="1" top="20" codecName="UTF-8"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="12" y="48" useTextEdit="1" openedFrom="C:/Users/bolia/Desktop/B11001-master/Source/main.c" path="Source/FrameWork/FrameWork_LED/framework_led.c" left="0" top="28" codecName="UTF-8"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="12" y="34" useTextEdit="1" openedFrom="C:/Users/bolia/Desktop/B11001-master/Source/main.c" path="Source/FrameWork/FrameWork_LED/framework_led.h" left="0" top="0" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="71" useTextEdit="1" path="Source/main.c" left="0" top="6" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="14" useTextEdit="1" openedFrom="C:/Users/bolia/Desktop/B11001/B11001/Source/main.c" path="Source/FrameWork/FrameWork_EPD/framework_epd.h" left="0" top="0" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="12" useTextEdit="1" openedFrom="C:/Users/bolia/Desktop/B11001/B11001/Source/main.c" folds0="26,325,624,923" path="Source/FrameWork/FrameWork_EPD/pic.h" left="0" selected="1" top="0" codecName="UTF-8"/>
  </Files>
- <EMStudioWindow activeProject="master" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/bolia/Desktop/B11001-master/Source/FrameWork/FrameWork_Hardware" debugSearchPath="" autoConnectCapabilities="3711"/>
+ <EMStudioWindow activeProject="master" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/bolia/Desktop/B11001/B11001/Source/FrameWork/FrameWork_EPD" debugSearchPath="" autoConnectCapabilities="3199"/>
 </session>
