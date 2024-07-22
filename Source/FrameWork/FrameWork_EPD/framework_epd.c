@@ -188,7 +188,7 @@ static uint8_t FrameWork_EPD_E029A12_WriteScreenALLClean(void)
     HAL_EPD_WriteCommand(0x24);                             //write RAM for black(0)/white (1)
     for(i=0; i<ALLSCREEN_GRAGHBYTES; i++)
     {
-        HAL_EPD_WriteData(0xff);
+        HAL_EPD_WriteData(0xfe);
     }
     return FrameWork_EPD_E029A12_Update();
 }

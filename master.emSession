@@ -2,6 +2,7 @@
 <session>
  <Bookmarks/>
  <Breakpoints groups="Breakpoints" active_group="Breakpoints">
+  <BreakpointListItem trigger="" line="128" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="2" filename="Source/main.c" useHWbreakpoint="false"/>
   <Exceptions set="MemManage;UsageFault_Coprocessor;UsageFault_CheckingError;UsageFault_StateError;BusFault;ExceptionEntryReturnFault;HardFault"/>
  </Breakpoints>
  <ExecutionProfileWindow/>
@@ -24,14 +25,13 @@
   <ProjectSessionItem path="master"/>
   <ProjectSessionItem path="master;master"/>
   <ProjectSessionItem path="master;master;SDK"/>
+  <ProjectSessionItem path="master;master;SDK;nRF_Drivers"/>
   <ProjectSessionItem path="master;master;SDK;Third Parties"/>
   <ProjectSessionItem path="master;master;Source"/>
+  <ProjectSessionItem path="master;master;Source;Application"/>
+  <ProjectSessionItem path="master;master;Source;Application;APP_EPD"/>
   <ProjectSessionItem path="master;master;Source;FrameWork"/>
-  <ProjectSessionItem path="master;master;Source;HAL"/>
-  <ProjectSessionItem path="master;master;Source;HAL;HAL_Board"/>
-  <ProjectSessionItem path="master;master;Source;HAL;HAL_LED"/>
-  <ProjectSessionItem path="master;master;Source;HAL;HAL_RTC"/>
-  <ProjectSessionItem path="master;master;Source;HAL;HAL_SPI"/>
+  <ProjectSessionItem path="master;master;Source;FrameWork;FrameWork_EPD"/>
   <ProjectSessionItem path="master;master;System Files"/>
  </Project>
  <Register1>
@@ -54,7 +54,7 @@
  </TraceWindow>
  <Watch1>
   <Watches active="1" update="Never">
-   <Watchpoint expression="blmcc" name="blmcc" radix="-1" linenumber="69" filename="Source/main.c"/>
+   <Watchpoint expression="blmcc" name="blmcc" radix="-1" linenumber="214" filename="Source/main.c"/>
    <Watchpoint expression="busy_tick" name="busy_tick" radix="-1" linenumber="117" filename="Source/HAL/HAL_EPD/hal_epd.c"/>
    <Watchpoint expression="HAL_RTC_GetSysTicks()" name="HAL_RTC_GetSysTicks()" radix="-1" linenumber="117" filename="Source/HAL/HAL_EPD/hal_epd.c"/>
    <Watchpoint expression="blmdde" name="blmdde" radix="-1" linenumber="116" filename="Source/HAL/HAL_EPD/hal_epd.c"/>
@@ -62,6 +62,15 @@
    <Watchpoint expression="ss_pin" name="ss_pin" radix="16" linenumber="585" filename="SDK/modules/nrfx/drivers/src/nrfx_spim.c"/>
    <Watchpoint expression="p_cb" name="p_cb" radix="-1" linenumber="585" filename="SDK/modules/nrfx/drivers/src/nrfx_spim.c"/>
    <Watchpoint expression="p_cb->ss_pin" name="p_cb->ss_pin" radix="-1" linenumber="585" filename="SDK/modules/nrfx/drivers/src/nrfx_spim.c"/>
+   <Watchpoint expression="BlackImage" name="BlackImage" radix="-1" linenumber="78" filename="Source/main.c"/>
+   <Watchpoint expression="Addr" name="Addr" radix="-1" linenumber="248" filename="Source/Application/APP_EPD/app_epd.c"/>
+   <Watchpoint expression="Paint" name="Paint" radix="-1" linenumber="878" filename="Source/Application/APP_EPD/app_epd.c"/>
+   <Watchpoint expression="Font" name="Font" radix="-1" linenumber="560" filename="Source/Application/APP_EPD/app_epd.c"/>
+   <Watchpoint expression="Rdata" name="Rdata" radix="-1" linenumber="249" filename="Source/Application/APP_EPD/app_epd.c"/>
+   <Watchpoint expression="Paint.Image[Addr]" name="Paint.Image[Addr]" radix="-1" linenumber="249" filename="Source/Application/APP_EPD/app_epd.c"/>
+   <Watchpoint expression="X" name="X" radix="-1" linenumber="251" filename="Source/Application/APP_EPD/app_epd.c"/>
+   <Watchpoint expression="* pString" name="* pString" radix="16" linenumber="619" filename="Source/Application/APP_EPD/app_epd.c"/>
+   <Watchpoint expression="Xpoint" name="Xpoint" radix="-1" linenumber="628" filename="Source/Application/APP_EPD/app_epd.c"/>
   </Watches>
  </Watch1>
  <Watch2>
@@ -74,9 +83,11 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="71" useTextEdit="1" path="Source/main.c" left="0" top="6" codecName="UTF-8"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="14" useTextEdit="1" openedFrom="C:/Users/bolia/Desktop/B11001/B11001/Source/main.c" path="Source/FrameWork/FrameWork_EPD/framework_epd.h" left="0" top="0" codecName="UTF-8"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="12" useTextEdit="1" openedFrom="C:/Users/bolia/Desktop/B11001/B11001/Source/main.c" folds0="26,325,624,923" path="Source/FrameWork/FrameWork_EPD/pic.h" left="0" selected="1" top="0" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="17" y="124" useTextEdit="1" path="Source/main.c" left="0" top="95" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="24" y="555" useTextEdit="1" openedFrom="C:/Users/bolia/Desktop/B11001/Source/main.c" path="Source/Application/APP_EPD/app_epd.c" left="0" selected="1" top="554" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="34" y="26" useTextEdit="1" openedFrom="C:/Users/bolia/Desktop/B11001/Source/main.c" path="Source/FrameWork/FrameWork_EPD/pic.h" left="0" top="0" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="251" useTextEdit="1" path="SDK/external/freertos/portable/CMSIS/nrf52/port_cmsis_systick.c" left="0" top="219" codecName="UTF-8"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="549" useTextEdit="1" path="SDK/modules/nrfx/drivers/src/nrfx_spim.c" left="0" top="517" codecName="UTF-8"/>
  </Files>
- <EMStudioWindow activeProject="master" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/bolia/Desktop/B11001/B11001/Source/FrameWork/FrameWork_EPD" debugSearchPath="" autoConnectCapabilities="3199"/>
+ <EMStudioWindow activeProject="master" fileDialogDefaultFilter="*" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="C:/Users/bolia/Desktop/B11001/Source/Application/APP_EPD" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>
